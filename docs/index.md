@@ -28,6 +28,15 @@ ProPM Agent is **project-scoped**:
 2. You upload knowledge and run agents in that project context.
 3. Outputs and activity are tracked per project.
 
+## Support & contact
+
+For support or commercial inquiries, contact us at:
+
+- **NovaBiz**
+- 131 Continental Dr, Suite 305
+- Newark, DE 19713 · United States
+- [support@navabiz.pro](mailto:support@navabiz.pro)
+
 ## Next
 
 Start with **Get started → Quick start** to go from sign-in to your first agent interaction.
