@@ -14,9 +14,9 @@ Before you deploy ProPM Agent from Azure Marketplace, confirm you have the follo
 
 - A **customer-owned Microsoft Entra application registration** prepared for ProPM Agent sign-in.
 - The **Application (client) ID** for that registration.
-- A decision on whether you will use:
-  - **Single-tenant** authority (recommended for most enterprises), or
-  - **Multi-tenant** authority (`common`)
+- The **Tenant ID** of the customer directory (GUID).
+
+> Each customer uses their own **single-tenant** Entra app registration and tenant ID.
 
 ## Network plan
 
@@ -38,7 +38,7 @@ You will be asked for these values in the Marketplace deployment wizard:
 
 - **Environment Name**
 - **Application (Entra) Client ID**
-- **Authority (Entra ID)**
+- **Tenant ID (Entra ID)**
 - **Scopes**
 - **CORS Allowed Origins** (optional)
 - **Azure SQL Admin Password**

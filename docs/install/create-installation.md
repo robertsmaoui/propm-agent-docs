@@ -28,11 +28,9 @@ Complete the checklist in **Install via Azure Marketplace → Prerequisites**.
    ### **Application (Entra) Client ID**
    The **Application (client) ID** of your Entra app registration.
 
-   ### **Authority (Entra ID)**
-   The Entra authority used for sign-in.
-
-   - For single-tenant deployments, use your tenant-specific authority.
-   - For multi-tenant testing, you can use the `common` authority.
+   ### **Entra Tenant ID**
+   The tenant ID (GUID) of your organization’s Entra directory.
+   This deployment uses **single-tenant** per customer.
 
    ### **Scopes (comma-separated)**
    Scopes used during sign-in.
@@ -40,6 +38,22 @@ Complete the checklist in **Install via Azure Marketplace → Prerequisites**.
    Your identity team may provide the exact value. A typical pattern is:
 
    - `openid,profile,api://<your-client-id>/.default`
+
+   ### **AZ CLI helper (optional)**
+   If you don’t already have an app registration, you can create one quickly:
+
+   ```bash
+   az login --tenant <TENANT_ID>
+
+   APP_ID=$(az ad app create \
+     --display-name "ProPM Agent" \
+     --sign-in-audience AzureADMyOrg \
+     --web-redirect-uris "<WEB_URL>" \
+     --query appId -o tsv)
+
+   az ad sp create --id $APP_ID
+   echo "Client ID: $APP_ID"
+   ```
 
    ### **CORS Allowed Origins** (optional)
    Usually leave this empty. Provide a value only if you need to allow additional web origins.
@@ -61,6 +75,6 @@ After deployment completes, you can open the Managed Application resource and fi
 ## Common issues
 
 - **Validation fails for the Client ID**: confirm you pasted the **Application (client) ID** (a GUID), not another identifier.
-- **Authority format is rejected**: enter a valid HTTPS authority URL.
+- **Tenant ID format is rejected**: ensure you entered the **tenant GUID** (not a domain name).
 - **Deployment fails due to networking**: confirm the **VNet CIDR** does not overlap with existing address ranges.
 
